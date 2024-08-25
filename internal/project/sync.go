@@ -1,6 +1,7 @@
 package project
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 	"os/exec"
@@ -21,7 +22,15 @@ func RunSync() {
 
 	homeDir, err := os.UserHomeDir()
 	if err != nil {
-		fmt.Println("can't load home dir. sync might be weird!", err)
+		fmt.Println("can't load home dir.", err)
+		return
+	}
+
+	reader := bufio.NewReader(os.Stdin)
+	confirm := tools.ReadInput("Are you sure you want to sync your files into this directory? [yes/no]", reader)
+	if strings.ToLower(confirm) != "yes" {
+		fmt.Println("Sync cancelled!")
+		return
 	}
 
 	files, folders := getProjectConfig(dir)
