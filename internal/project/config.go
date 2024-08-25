@@ -40,6 +40,11 @@ func writeProjectConfig(dir string, files []string, folders []string) {
 
 func getProjectConfig(dir string) (syncFiles []string, syncFolders []string) {
 	dir = tools.FormatDir(dir)
+	homeDir, err := os.UserHomeDir()
+	if err != nil {
+		fmt.Println("can't get home dir!")
+		return
+	}
 	filePath := tools.GetProjectFilePath(dir)
 	file, err := os.Open(filePath)
 	if err != nil {
@@ -69,6 +74,10 @@ func getProjectConfig(dir string) (syncFiles []string, syncFolders []string) {
 			readingFiles = true
 			readingFolders = false
 			continue
+		}
+
+		if strings.Contains(line, "$HOME") {
+			line = strings.Replace(line, "$HOME", homeDir, 1)
 		}
 
 		if readingFiles {
