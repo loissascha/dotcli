@@ -27,8 +27,8 @@ func RunSync() {
 	}
 
 	reader := bufio.NewReader(os.Stdin)
-	confirm := tools.ReadInput("Are you sure you want to sync your files into this directory? [yes/no]", reader)
-	if strings.ToLower(confirm) != "yes" {
+	confirm := tools.ReadInput("Are you sure you want to sync your files into this directory? [(y)es/(n)o]", reader)
+	if strings.ToLower(confirm) != "yes" && strings.ToLower(confirm) != "y" {
 		fmt.Println("Sync cancelled!")
 		return
 	}
