@@ -56,13 +56,13 @@ func RunRestore() {
 			}
 		}
 
-		fmt.Println("cp", file, v)
-		// cmd := exec.Command("cp", file, v)
-		// _, err := cmd.Output()
-		// if err != nil {
-		// 	fmt.Println("Error cp file", err)
-		// 	return
-		// }
+		// fmt.Println("cp", file, v)
+		cmd := exec.Command("cp", file, v)
+		_, err := cmd.Output()
+		if err != nil {
+			fmt.Println("Error cp file", err)
+			return
+		}
 	}
 
 	for _, v := range folders {
@@ -83,12 +83,12 @@ func RunRestore() {
 
 		folder = strings.TrimSuffix(folder, "/") + "/."
 
-		fmt.Println("cp -r", folder, fromPath)
-		// cmd = exec.Command("cp", "-r", folder, fromPath)
-		// _, err = cmd.Output()
-		// if err != nil {
-		// 	fmt.Println("Error cp folder", err.Error())
-		// 	return
-		// }
+		// fmt.Println("cp -r", folder, fromPath)
+		cmd = exec.Command("cp", "-r", folder, fromPath)
+		_, err = cmd.Output()
+		if err != nil {
+			fmt.Println("Error cp folder", err.Error())
+			return
+		}
 	}
 }
