@@ -19,7 +19,7 @@ var addCmd = &cobra.Command{
 Synced files and folders get copied from their source into the respective folders.
 They will get updated every time the sync command gets executed!
 
-You can add multiple files and folders by just adding multiple arguments to the command.`,
+You can add multiple files and folders by adding multiple arguments to the command.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) == 0 {
 			fmt.Println("Please provide at least one folder or file to be added")

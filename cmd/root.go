@@ -12,13 +12,13 @@ import (
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "dotcli",
-	Short: "A cli tool to manager your sync your dotfiles with your git directory",
-	Long: `A longer description that spans multiple lines and likely contains
-examples and usage of using your application. For example:
+	Short: "A cli tool to manage your sync your dotfiles with your git directory",
+	Long: `A cli tool to manage and synchronize your dotfiles with your git directory.
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+Initialize a project folder with 'dotcli init'.
+Add files and folders you want to synchronize from your local system with 'dotcli add'.
+Synchronize your files/folders from your system into your dotcli project folder with 'dotcli sync'.
+This also works in the reverse way with the command 'dotcli restore'. This can be helpful if you reinstalled your system or want to sync multiple devices to the same dotfiles.`,
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.

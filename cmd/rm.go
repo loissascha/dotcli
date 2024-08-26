@@ -15,9 +15,9 @@ var rmCmd = &cobra.Command{
 	Short: "Remove a file/folder from the sync",
 	Long: `Removes a file or folder from the sync.
 
-Only removes the file/folder from future syncs. Will not touch your files!`,
+Only removes the file/folder from future syncs. Will not touch the files that are already synced to this folder!`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("rm called")
+		fmt.Println("This function is not yet implemented. Please remove it by editing the .dotfilescli file!")
 	},
 }
 

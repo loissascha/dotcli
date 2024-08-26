@@ -12,12 +12,7 @@ import (
 var restoreCmd = &cobra.Command{
 	Use:   "restore",
 	Short: "Replace system files with those from this directory",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Long:  `Let's you sync all the files and folders from your dotcli project directory back into your system!`,
 	Run: func(cmd *cobra.Command, args []string) {
 		project.RunRestore()
 	},

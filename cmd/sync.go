@@ -11,13 +11,10 @@ import (
 // syncCmd represents the sync command
 var syncCmd = &cobra.Command{
 	Use:   "sync",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
+	Short: "Syncs all your files into this folder.",
+	Long: `Synchronizes all the files that are marked for sync into this folder.
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+Make sure you marked all the files/folders with 'dotcli add'!`,
 	Run: func(cmd *cobra.Command, args []string) {
 		project.RunSync()
 	},
