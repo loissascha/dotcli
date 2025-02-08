@@ -6,6 +6,7 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/loissascha/dotcli/internal/project"
 	"github.com/spf13/cobra"
 )
 
@@ -17,7 +18,11 @@ var rmCmd = &cobra.Command{
 
 Only removes the file/folder from future syncs. Will not touch the files that are already synced to this folder!`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("This function is not yet implemented. Please remove it by editing the .dotfilescli file!")
+		if len(args) == 0 {
+			fmt.Println("Please provide at least one folder or file to be removed")
+			return
+		}
+		project.RemoveFilesAndFolders(args)
 	},
 }
 
